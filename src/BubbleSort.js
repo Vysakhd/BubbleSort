@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setInputArray, setIteration } from "./redux/bubbleSlice";
 
-
 const BubbleSort = () => {
   const [array, setArray] = useState([]);
   const dispatch=useDispatch();
   let count=0;
-  
- 
-
   const bubbleSort = async() =>{
     const newArray = [...array];
-
     for (let i = 0; i < newArray.length; i++) {
       for (let j = 0; j < newArray.length - i - 1; j++) {
         await new Promise((resolve) => setTimeout(resolve, 250));
@@ -29,16 +24,12 @@ const BubbleSort = () => {
       }
       
     }
-
-    
-
   };
   const handleInputChange=(e)=>{ 
     const userInput = e.target.value;
     const newArray = userInput.split(",").map(Number);
     setArray(newArray);
   }
-  
 
   return (
     <div className="bubble">
@@ -47,9 +38,6 @@ const BubbleSort = () => {
       type="text"
       onChange={handleInputChange}
       />
-      
-       
-     
       <button onClick={bubbleSort}>Sort</button>
       
     
